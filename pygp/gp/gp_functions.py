@@ -1721,7 +1721,7 @@ def manage_channel(open_channel, logical_channel):
     if open_channel == True:
         capdu = '00 70 00 00 01'
     else:
-        if logical_channel < 0x01 and logical_channel > 0x03:
+        if logical_channel < 0x01 or logical_channel > 0x03:
             # channel number must be between 01 and 03
             error_status = create_error_status(ERROR_WRONG_DATA, runtimeErrorDict[ERROR_WRONG_DATA])
             return error_status
